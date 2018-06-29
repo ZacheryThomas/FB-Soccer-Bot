@@ -30,15 +30,16 @@ def click(x,y):
 
 
 while currentActions < desiredScore:
-    # take screenshot and save it in images
-    secreenshot(emulatorLocation['top'], emulatorLocation['left'], 
+    # take screenshot and save it in desired location
+    secreenshot(emulatorLocation['left'], emulatorLocation['top'], 
                 emulatorLocation['width'], emulatorLocation['height'],
                 fileName=SCREENSHOT_FILENAME)
 
-    # determine where ball is in screenshot
+    # determine where center of ball is in screenshot
     centerX, centerY = detect(TARGET_FILENAME, SCREENSHOT_FILENAME)
 
     # if ball is near bottom half of screen, its okay to click
+    # (prevents ball from traveling too far vertically)
     if centerY > (emulatorLocation['height'] - emulatorLocation['top']) / 2:
         click(centerX, centerY + PIXBUFFER)
 
