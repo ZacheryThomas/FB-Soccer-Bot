@@ -14,5 +14,5 @@ PyScreeze==0.1.14
 python-dateutil==2.7.3
 PyTweening==1.0.3
 pytz==2018.4
-pywin32==223
+pywin32==301
 six==1.11.0
